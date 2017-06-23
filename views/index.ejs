@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>留言板</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        input[type="text"],textarea{width:400px;}
+        ul li{list-style: none;}
+    </style>
+</head>
+<body>
+<h1>备忘录</h1>
+<form action="#" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="exampleInputEmail1">主题</label>
+        <input type="text" name="title">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">事项</label>
+        <textarea name="details" ></textarea>
+    </div>
+    <input type="submit" value="提交" style="background-color:limegreen">
+    <hr/>
+    <ul>
+        <%for(var i=0;i<allDatas.length;i++){%>
+        <li><%=allDatas[i].title%></li>
+        <li><%=allDatas[i].details%></li>
+        <li><%=allDatas[i].time%></li>
+        <li><a href="/<%=allDatas[i]._id%>">删除</a></li>
+        <hr/>
+        <%}%>
+    </ul>
+</form>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
